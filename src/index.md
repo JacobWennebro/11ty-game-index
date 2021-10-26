@@ -7,7 +7,7 @@ templateEngineOverride: njk,md
 
 <div class="games">
 {%- for game in collections.games -%}
-    <a href="./{{ game.url }}" class="games__card">
+    <a href="{{ game.url }}" class="games__card">
         <img alt="{{ game.data.title }}" src="{{ game.data.thumbnail }}">
         <div class="games__card-details">
             <h2>{{ game.data.title }}</h2>
