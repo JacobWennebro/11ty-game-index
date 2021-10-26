@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="app">
+        <header>
+            <div id="title" class="center-v">
+                <h1><a href="/">Free PC Games Index</a></h1>
+                <p>11ty site by <a href="https://github.com/JacobWennebro" target="_blank">Jacob Wennebro</a></p>    
+            </div>
+
+            <nav id="navbar" class="center-v">
+                <ul>
+                    <li><a href="https://github.com/JacobWennebro/11ty-game-index" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.freetogame.com/api-doc" target="_blank">Free-To-Play API</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="page-data">
+                {{ content | safe }}
+            </div>
+        </main>
+
+        <footer id="footer">
+            <p>2021 &copy; Jacob Wennebro</p>
+        </footer>
+    </div>
+</body>
+</html>

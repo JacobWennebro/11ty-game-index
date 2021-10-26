@@ -1,0 +1,50 @@
+$bg: rgb(10, 30, 46);
+$ov: #16425B;
+
+$links: #81C3D7;
+
+$attr-1: #81C3D7;
+$attr-2: #3A7CA5;
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1rem;
+
+    &__card {
+        display: block;
+        color: #FFF;
+        text-decoration: none;
+        background-color: $ov;
+        overflow: hidden;
+        border-radius: 8px;
+        padding-bottom: 0.25rem;
+
+        &:hover {
+            img {
+                filter: brightness(100%);
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            transition: filter 0.5s ease;
+            filter: brightness(85%);
+        }
+
+        &-details {
+            padding: 0.5rem;
+            h2 {
+                font-size: 1.2rem;
+            }
+            p {
+                font-size: 0.85rem;
+                margin-top: 0.5rem;
+            }
+        }
+
+
+    }
+
+}

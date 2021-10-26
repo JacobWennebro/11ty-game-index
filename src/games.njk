@@ -1,0 +1,72 @@
+---
+pagination:
+    data: cms
+    size: 1
+    alias: game
+    addAllPagesToCollections: true
+permalink: "/game/{{ game.title | slug }}/"
+tags: games
+layout: base.njk
+templateEngineOverride: md, njk
+eleventyComputed:
+    title: "{{ game.title }}"
+    thumbnail: "{{ game.thumbnail }}"
+    genre: "{{ game.genre }}"
+    short_description: "{{ game.short_description }}"
+    description: "{{ game.description }}"
+    date: "{{ game.release_date }}"
+    developer: "{{ game.developer }}"
+    publisher: "{{ game.publisher }}"
+    screenshots: "{{ game.screenshots }}"
+    game_url: "{{ game.game_url }}"
+    platform: "{{ game.platform }}"
+---
+
+<div class="game">
+    <div class="game__hero">
+        <div class="game__hero-image">
+            <div id="thumbnail" class="center-v">
+                <img class="center-v" src="{{ game.thumbnail }}"/>
+                <div class="game-info">
+                    <div class="game-info__wrapper center-v">
+                        <h1>{{ game.title }}</h1>
+                        <div class="game-attributes">
+                            <span>{{ game.genre }}</span>
+                            <span>{{ game.platform }}</span>
+                            <span class="date" title="Released {{ game.release_date }}">{{ game.release_date }}</span>
+                        </div>
+                        <p class="game-info__wrapper-author">
+                            Developer ({{ game.developer }})
+                            <br/>
+                            Publisher ({{ game.publisher }})
+                        </p>
+                        <br/>
+                        <div class="game-info__wrapper-buttons">
+                            <a href="{{ game.game_url }}" target="_blank"><button>download</button></a>
+                            <a href="{{ game.freetogame_profile_url }}" target="_blank"><button>FTG Page</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="game__hero-image-src" style="background-image:url('{{ game.thumbnail }}')"></div>
+        </div>
+        <div class="game__hero-contents">
+            <h4>Screenshots ({{ game.screenshots.length }})</h4>
+            <div class="game__hero-contents-screenshots">
+                {%- for ss in game.screenshots.slice(0, 4) -%}
+                    <a href="{{ ss.image }}" target="_blank"><img src="{{ ss.image }}"></a>
+                {%- endfor -%}
+            </div>
+            <h4>Minimum system requirements</h4>
+            <ul style="padding-left:1.5rem;margin-bottom:1rem;">
+                <li>OS: {{ game.minimum_system_requirements.os }}</li>
+                <li>CPU: {{ game.minimum_system_requirements.processor }}</li>
+                <li>RAM: {{ game.minimum_system_requirements.memory }}</li>
+                <li>GPU: {{ game.minimum_system_requirements.graphics }}</li>
+                <li>STORAGE: {{ game.minimum_system_requirements.storage }}</li>
+            </ul>
+            <h4>Full description</h4>
+            <p>{{ game.description }}</p>
+        </div>
+    </div>
+</div>
