@@ -1,5 +1,5 @@
 ---
-title: "Hello World"
+title: "Free PC Game Index"
 layout: "base.njk"
 templateEngineOverride: njk,md
 
